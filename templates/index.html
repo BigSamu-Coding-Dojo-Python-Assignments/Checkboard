@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+
+    <title>Playground</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <h1>Checkboard</h1>
+            <table class="boxContainer">
+                {% for i in range(0, num_rows//2): %}
+                    <tr>
+                    {% for j in range(0, num_cols//2): %}
+                        <td class="boxOne" style="background-color: {{color_one}}"></td>
+                        <td class="boxTwo" style="background-color: {{color_two}}"></td>
+                    {% endfor %}
+                    </tr>
+                    <tr>
+                    {% for j in range(0, num_cols//2): %}
+                        <td class="boxTwo" style="background-color: {{color_two}}"></td>
+                        <td class="boxOne" style="background-color: {{color_one}}"></td>
+                    {% endfor %}
+                    </tr>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
