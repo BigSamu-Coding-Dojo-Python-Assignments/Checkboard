@@ -7,24 +7,21 @@
 
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
 
-    <title>Playground</title>
+    <title>Checkboard</title>
 </head>
 <body>
     <div class="wrapper">
         <div class="container">
             <h1>Checkboard</h1>
             <table class="boxContainer">
-                {% for i in range(0, num_rows//2): %}
+                {% for i in range(0, num_rows): %}
                     <tr>
-                    {% for j in range(0, num_cols//2): %}
-                        <td class="boxOne" style="background-color: {{color_one}}"></td>
-                        <td class="boxTwo" style="background-color: {{color_two}}"></td>
-                    {% endfor %}
-                    </tr>
-                    <tr>
-                    {% for j in range(0, num_cols//2): %}
-                        <td class="boxTwo" style="background-color: {{color_two}}"></td>
-                        <td class="boxOne" style="background-color: {{color_one}}"></td>
+                    {% for j in range(0, num_cols): %}
+                        {% if (i%2 == 0 and j%2 == 0) or (i%2 != 0 and j%2 != 0) %}
+                            <td class="boxOne" style="background-color: {{color_one}}"></td>
+                        {% else %}
+                            <td class="boxTwo" style="background-color: {{color_two}}"></td>
+                        {% endif %}
                     {% endfor %}
                     </tr>
                 {% endfor %}
